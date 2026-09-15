@@ -1,0 +1,6 @@
+{
+  "name": "SmileCraft Dental Clinic",
+  "description": "Premium dental clinic lead-generation funnel website with 3D visuals, interactive consultation quiz, verified social proof, and instant appointment booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
