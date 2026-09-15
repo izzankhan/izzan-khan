@@ -53,33 +53,33 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
   };
 
   return (
-    <section id="treatments" className="py-20 bg-white relative">
+    <section id="treatments" className="py-8 sm:py-12 lg:py-16 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-xs font-bold uppercase tracking-wider">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-xs font-bold uppercase tracking-wider">
             <span>Specialized Clinical Excellence</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             Complete Dental Care Under One Roof
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600">
+          <p className="text-sm sm:text-base text-slate-600">
             From single-visit cosmetic brightening to full restorative rehabilitation, our team combines gentle technique with 3D digital precision.
           </p>
         </div>
 
         {/* Category Pills Filter */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div className="flex items-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 overflow-x-auto pb-1 flex-nowrap sm:flex-wrap justify-start sm:justify-center no-scrollbar px-1">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer shrink-0 ${
                 activeCategory === cat.id
-                  ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
+                  ? 'bg-slate-900 text-white shadow-sm'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
@@ -89,15 +89,15 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
         </div>
 
         {/* 8 Treatments Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {filteredTreatments.map((treatment) => (
             <div
               key={treatment.id}
               id={`treatment-card-${treatment.id}`}
-              className="group relative bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden transform hover:-translate-y-1"
+              className="group relative bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden transform hover:-translate-y-1"
             >
               {/* Image Container with 3D visual aspect */}
-              <div className="relative h-44 w-full overflow-hidden bg-slate-100">
+              <div className="relative h-36 sm:h-44 w-full overflow-hidden bg-slate-100">
                 <img
                   src={treatment.image}
                   alt={treatment.name}
@@ -107,41 +107,41 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
                 
                 {/* Tag / Category */}
-                <div className="absolute top-3 left-3 flex items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-slate-900/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+                <div className="absolute top-2.5 left-2.5 flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-slate-900/70 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/20">
                     {treatment.category}
                   </span>
                 </div>
 
                 {treatment.popular && (
-                  <div className="absolute top-3 right-3 flex items-center gap-1 text-[10px] font-bold text-amber-900 bg-amber-300/95 backdrop-blur-md px-2.5 py-1 rounded-full shadow-xs">
+                  <div className="absolute top-2.5 right-2.5 flex items-center gap-1 text-[10px] font-bold text-amber-900 bg-amber-300/95 backdrop-blur-md px-2 py-0.5 rounded-full shadow-xs">
                     <Flame className="w-3 h-3 text-amber-700" />
                     <span>Popular</span>
                   </div>
                 )}
 
                 {/* Duration Indicator */}
-                <div className="absolute bottom-2.5 left-3 flex items-center gap-1.5 text-white/90 text-xs font-medium">
-                  <Clock className="w-3.5 h-3.5 text-cyan-300" />
+                <div className="absolute bottom-2 left-2.5 flex items-center gap-1 text-white/90 text-xs font-medium">
+                  <Clock className="w-3 h-3 text-cyan-300" />
                   <span>{treatment.duration}</span>
                 </div>
               </div>
 
               {/* Card Body */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
                     {treatment.name}
                   </h3>
-                  <p className="text-xs font-semibold text-sky-600 mt-1 line-clamp-1">
+                  <p className="text-xs font-semibold text-sky-600 mt-0.5 line-clamp-1">
                     {treatment.tagline}
                   </p>
-                  <p className="text-xs text-slate-600 mt-2.5 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-1.5 line-clamp-2 leading-relaxed">
                     {treatment.description}
                   </p>
 
                   {/* Bullet Benefits */}
-                  <ul className="mt-3.5 space-y-1.5 text-xs text-slate-600">
+                  <ul className="mt-3 space-y-1 text-xs text-slate-600">
                     {treatment.benefits.slice(0, 2).map((benefit, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
@@ -152,7 +152,7 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
                 </div>
 
                 {/* Action Buttons */}
-                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2">
+                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
                   <button
                     onClick={() => handleLearnMore(treatment)}
                     className="text-xs font-bold text-slate-600 hover:text-sky-600 flex items-center gap-1 transition-colors py-1 cursor-pointer"
@@ -163,7 +163,7 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
 
                   <button
                     onClick={() => handleDirectBook(treatment.name)}
-                    className="px-3 py-1.5 rounded-lg bg-sky-50 hover:bg-sky-600 text-sky-700 hover:text-white text-xs font-bold transition-all flex items-center gap-1 border border-sky-200 hover:border-sky-600 cursor-pointer"
+                    className="theme-btn-primary px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 shadow-xs cursor-pointer"
                   >
                     <span>Book Now</span>
                     <ArrowRight className="w-3 h-3" />

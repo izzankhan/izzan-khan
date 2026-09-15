@@ -52,9 +52,9 @@ export const StickyMobileBar: React.FC<StickyMobileBarProps> = ({ onOpenBooking 
         {/* Primary Book CTA */}
         <button
           onClick={handleBook}
-          className="flex-1 h-12 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 active:from-sky-700 active:to-cyan-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-md shadow-sky-600/25 transition-all"
+          className="theme-btn-primary flex-1 h-12 rounded-xl text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-md transition-all active:scale-98"
         >
-          <Sparkles className="w-4 h-4 text-cyan-200" />
+          <Sparkles className="w-4 h-4 text-white" />
           <span>Book Free Consultation</span>
         </button>
 

@@ -141,40 +141,40 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ preselectedTreat
   };
 
   return (
-    <section id="booking-section" className="py-20 bg-white relative">
+    <section id="booking-section" className="py-8 sm:py-12 lg:py-16 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/70 border border-sky-200 text-sky-800 text-xs font-bold uppercase tracking-wider">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-8 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100/70 border border-sky-200 text-sky-800 text-xs font-bold uppercase tracking-wider">
             <CalendarIcon className="w-3.5 h-3.5" />
             <span>Direct Scheduling Concierge</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             Ready To Take The Next Step?
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600">
+          <p className="text-xs sm:text-sm text-slate-600">
             Choose a convenient time for your consultation.
           </p>
         </div>
 
         {/* Integration Callout: GoHighLevel / Calendly ready */}
-        <div className="max-w-4xl mx-auto mb-8 p-3 rounded-2xl bg-slate-50 border border-dashed border-slate-300 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-3">
+        <div className="max-w-4xl mx-auto mb-5 sm:mb-6 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-slate-50 border border-dashed border-slate-300 text-[11px] sm:text-xs text-slate-500 flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <Layers className="w-4 h-4 text-sky-600 shrink-0" />
             <span>
               <strong>CRM Integration Ready:</strong> Easily connect this native booking UI directly to GoHighLevel Calendar, Calendly, or your clinic webhook.
             </span>
           </div>
-          <span className="px-2 py-0.5 rounded-md bg-white border border-slate-200 font-semibold text-slate-700">
+          <span className="px-2 py-0.5 rounded-md bg-white border border-slate-200 font-semibold text-slate-700 text-[10px] sm:text-xs">
             GHL / Calendly Webhook Ready
           </span>
         </div>
 
         {/* Booking Container */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl p-6 sm:p-10">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-8">
           
           {isConfirmed ? (
             /* Confirmation State */
@@ -251,7 +251,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ preselectedTreat
             </div>
           ) : (
             /* Active Booking Form */
-            <form onSubmit={handleBookingSubmit} className="space-y-8">
+            <form onSubmit={handleBookingSubmit} className="space-y-5 sm:space-y-6">
               
               {errorMsg && (
                 <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold flex items-center gap-2">
@@ -262,13 +262,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ preselectedTreat
 
               {/* 1. Appointment Type Selector */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                   1. Select Consultation or Treatment Type
                 </label>
                 <select
                   value={appointmentType}
                   onChange={(e) => setAppointmentType(e.target.value)}
-                  className="w-full p-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-sm font-medium bg-white"
+                  className="w-full p-2.5 sm:p-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-xs sm:text-sm font-medium bg-white"
                 >
                   {appointmentTypes.map((type) => (
                     <option key={type} value={type}>
@@ -280,12 +280,12 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ preselectedTreat
 
               {/* 2. Date Selector */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2.5 flex items-center justify-between">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 flex items-center justify-between">
                   <span>2. Choose Your Preferred Date</span>
-                  <span className="text-[11px] text-sky-600 font-normal">Next available business days</span>
+                  <span className="text-[10px] sm:text-[11px] text-sky-600 font-normal">Next available business days</span>
                 </label>
                 
-                <div className="grid grid-cols-3 sm:grid-cols-7 gap-2">
+                <div className="grid grid-cols-4 sm:grid-cols-7 gap-1.5 sm:gap-2">
                   {availableDates.map((date) => {
                     const isSelected = selectedDate === date.fullDateString;
                     return (
@@ -293,15 +293,15 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ preselectedTreat
                         key={date.fullDateString}
                         type="button"
                         onClick={() => handleDateSelect(date.fullDateString)}
-                        className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
+                        className={`p-2 sm:p-3 rounded-xl sm:rounded-2xl border text-center transition-all cursor-pointer ${
                           isSelected
-                            ? 'bg-sky-600 border-sky-600 text-white shadow-md'
+                            ? 'bg-sky-600 border-sky-600 text-white shadow-xs'
                             : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-sky-300 hover:bg-white'
                         }`}
                       >
-                        <div className="text-[11px] font-semibold uppercase">{date.dayName}</div>
-                        <div className="text-xl font-extrabold my-0.5">{date.dayNumber}</div>
-                        <div className="text-[10px] opacity-80">{date.monthName}</div>
+                        <div className="text-[10px] sm:text-[11px] font-semibold uppercase">{date.dayName}</div>
+                        <div className="text-base sm:text-xl font-extrabold my-0.5">{date.dayNumber}</div>
+                        <div className="text-[9px] sm:text-[10px] opacity-80">{date.monthName}</div>
                       </button>
                     );
                   })}
@@ -427,13 +427,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ preselectedTreat
                   type="submit"
                   disabled={isSubmitting}
                   id="booking-confirm-btn"
-                  className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-sky-600 via-sky-700 to-cyan-600 hover:from-sky-700 hover:to-cyan-700 text-white font-black text-base shadow-xl shadow-sky-600/25 hover:shadow-2xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                  className="theme-btn-primary w-full py-3.5 sm:py-4 px-6 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
                 >
                   {isSubmitting ? (
                     <span>Confirming Your Reservation...</span>
                   ) : (
                     <>
-                      <CalendarIcon className="w-5 h-5" />
+                      <CalendarIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       <span>BOOK MY APPOINTMENT</span>
                       <ArrowRight className="w-4 h-4" />
                     </>

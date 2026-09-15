@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { TrustSocialProofSection } from './components/TrustSocialProofSection';
@@ -17,12 +17,24 @@ import { BookingSection } from './components/BookingSection';
 import { FinalCtaAndFooter } from './components/FinalCtaAndFooter';
 import { StickyMobileBar } from './components/StickyMobileBar';
 import { ExitIntentModal } from './components/ExitIntentModal';
+import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { trackEvent } from './utils/analytics';
 
 export default function App() {
+  const [currentTheme, setCurrentTheme] = useState<string>('ocean');
   const [selectedTreatmentForBooking, setSelectedTreatmentForBooking] = useState<string>(
     'Free Comprehensive Consultation & Scan'
   );
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  }, [currentTheme]);
+
+  const handleThemeChange = (newTheme: string) => {
+    setCurrentTheme(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    trackEvent('theme_changed', { theme: newTheme });
+  };
 
   // Smooth scroll helpers
   const scrollToBooking = (treatmentName?: string) => {
@@ -58,7 +70,15 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col font-sans selection:bg-cyan-100 selection:text-cyan-900">
+    <div
+      data-theme={currentTheme}
+      className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col font-sans selection:bg-cyan-100 selection:text-cyan-900"
+    >
+      {/* Floating Interactive Theme Switcher */}
+      <ThemeSwitcher
+        currentTheme={currentTheme}
+        onThemeChange={handleThemeChange}
+      />
       
       {/* Sticky Top Navigation */}
       <Navbar

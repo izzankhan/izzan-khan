@@ -158,32 +158,32 @@ export const LeadQuizSection: React.FC<LeadQuizSectionProps> = ({
   };
 
   return (
-    <section id="consultation-quiz" className="py-20 bg-gradient-to-b from-white to-slate-50 relative">
+    <section id="consultation-quiz" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white to-slate-50 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-100/70 border border-cyan-200 text-cyan-800 text-xs font-bold uppercase tracking-wider">
+        <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-8 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100/70 border border-cyan-200 text-cyan-800 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Interactive Assessment • Takes 60 Seconds</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             Find The Right Dental Care For You
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600">
+          <p className="text-xs sm:text-sm text-slate-600">
             Answer 3 quick questions to check eligibility for your complimentary consultation and personalized treatment estimate.
           </p>
         </div>
 
         {/* Multi-step Box */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl p-6 sm:p-10 relative overflow-hidden">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-8 relative overflow-hidden">
           
           {/* Progress Bar */}
           {!isSuccess && (
-            <div className="mb-8">
-              <div className="flex items-center justify-between text-xs font-bold text-slate-500 mb-2">
+            <div className="mb-5 sm:mb-6">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-500 mb-1.5">
                 <span>Step {currentStep} of 4</span>
                 <span className="text-sky-600 font-extrabold">
                   {currentStep === 1 && 'Select Service'}
@@ -192,7 +192,7 @@ export const LeadQuizSection: React.FC<LeadQuizSectionProps> = ({
                   {currentStep === 4 && 'Your Details'}
                 </span>
               </div>
-              <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+              <div className="w-full bg-slate-100 h-2 sm:h-2.5 rounded-full overflow-hidden">
                 <div
                   className="bg-gradient-to-r from-sky-600 to-cyan-500 h-full rounded-full transition-all duration-300"
                   style={{ width: `${(currentStep / 4) * 100}%` }}
@@ -491,13 +491,13 @@ export const LeadQuizSection: React.FC<LeadQuizSectionProps> = ({
                       type="submit"
                       disabled={isSubmitting}
                       id="quiz-submit-btn"
-                      className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-sky-600 via-cyan-600 to-sky-700 hover:from-sky-700 hover:to-cyan-700 text-white font-extrabold text-base shadow-lg shadow-sky-600/25 hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                      className="theme-btn-primary w-full py-3.5 sm:py-4 px-6 rounded-xl font-extrabold text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
                     >
                       {isSubmitting ? (
                         <span>Reserving Your Consultation...</span>
                       ) : (
                         <>
-                          <Sparkles className="w-5 h-5 text-cyan-200" />
+                          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                           <span>GET MY FREE CONSULTATION</span>
                           <ArrowRight className="w-4 h-4" />
                         </>

@@ -24,7 +24,8 @@ export type TrackingEventType =
   | 'booking_date_selected'
   | 'booking_completed'
   | 'exit_intent_claimed'
-  | 'special_offer_claimed';
+  | 'special_offer_claimed'
+  | 'theme_changed';
 
 export interface TrackingPayload {
   ctaName?: string;

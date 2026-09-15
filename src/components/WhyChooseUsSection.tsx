@@ -50,54 +50,54 @@ export const WhyChooseUsSection: React.FC = () => {
   ];
 
   return (
-    <section id="why-choose-us" className="py-20 bg-slate-50 relative">
+    <section id="why-choose-us" className="py-8 sm:py-12 lg:py-16 bg-slate-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/70 border border-sky-200 text-sky-800 text-xs font-bold uppercase tracking-wider">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100/70 border border-sky-200 text-sky-800 text-xs font-bold uppercase tracking-wider">
             <span>The SmileCraft Standard</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             Why Patients Choose SmileCraft
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600">
+          <p className="text-sm sm:text-base text-slate-600">
             We bridge the gap between world-class cosmetic dental artistry and warm, empathetic patient comfort.
           </p>
         </div>
 
         {/* 6 Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-2xl p-7 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between"
+              className="group relative bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between"
             >
               {/* Subtle top accent gradient */}
-              <div className="w-12 h-1 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full mb-6 group-hover:w-20 transition-all duration-300" />
+              <div className="w-10 sm:w-12 h-1 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full mb-4 sm:mb-5 group-hover:w-20 transition-all duration-300" />
 
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-sky-50/80 border border-sky-100 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-white transition-all shadow-xs">
+                <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl bg-sky-50/80 border border-sky-100 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-white transition-all shadow-xs">
                   {benefit.icon}
                 </div>
 
-                <div className="inline-block text-[11px] font-bold text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-md mb-2">
+                <div className="inline-block text-[10px] sm:text-[11px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-md mb-1.5">
                   {benefit.highlight}
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
                   {benefit.title}
                 </h3>
 
-                <p className="text-sm text-slate-600 mt-2.5 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-500">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-500">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                 <span>Standard with every visit</span>
               </div>
             </div>

@@ -39,33 +39,33 @@ export const FinalCtaAndFooter: React.FC<FinalCtaAndFooterProps> = ({ onOpenBook
     <footer id="footer" className="relative bg-slate-950 text-white overflow-hidden">
       
       {/* SECTION 15: Final Conversion Section */}
-      <div className="relative py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+      <div className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
         
         {/* Subtle Background Lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-sky-600/15 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+        <div className="relative max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Take The First Step Today</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
             A Better Smile Starts With One Simple Step.
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Book your consultation today and discover the right dental care for your needs.
           </p>
 
           {/* CTA Buttons: Book + Call + WhatsApp */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 pt-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3.5 pt-2 sm:pt-4">
             <button
               onClick={handleBookClick}
               id="final-book-cta-btn"
-              className="group flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-sky-500 via-sky-600 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-white font-extrabold text-base shadow-xl shadow-sky-600/30 hover:shadow-2xl transition-all transform hover:-translate-y-0.5 cursor-pointer"
+              className="theme-btn-primary group flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl font-extrabold text-sm sm:text-base shadow-lg transition-all transform active:scale-98 sm:hover:-translate-y-0.5 cursor-pointer"
             >
-              <Calendar className="w-5 h-5" />
+              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               <span>BOOK MY APPOINTMENT</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -74,7 +74,7 @@ export const FinalCtaAndFooter: React.FC<FinalCtaAndFooterProps> = ({ onOpenBook
               href={CLINIC_INFO.phoneHref}
               onClick={handleCallClick}
               id="final-call-btn"
-              className="flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/20 transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-base border border-white/20 transition-all cursor-pointer"
             >
               <Phone className="w-4 h-4 text-cyan-400" />
               <span>CALL NOW</span>
@@ -86,23 +86,23 @@ export const FinalCtaAndFooter: React.FC<FinalCtaAndFooterProps> = ({ onOpenBook
               rel="noopener noreferrer"
               onClick={handleWhatsappClick}
               id="final-whatsapp-btn"
-              className="flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 font-bold text-base border border-emerald-500/40 transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 font-bold text-xs sm:text-base border border-emerald-500/40 transition-all cursor-pointer"
             >
               <MessageSquare className="w-4 h-4 text-emerald-400" />
               <span>WhatsApp Chat</span>
             </a>
           </div>
 
-          <div className="pt-2 flex items-center justify-center gap-2 text-xs text-slate-400">
-            <ShieldCheck className="w-4 h-4 text-cyan-400" />
+          <div className="pt-1 flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-slate-400">
+            <ShieldCheck className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
             <span>Complimentary Assessment • No Credit Card Required • Same-Day Confirmation</span>
           </div>
         </div>
       </div>
 
       {/* FOOTER: Clinical Information, Opening Hours, Map & Legal */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10">
           
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-4 space-y-4">

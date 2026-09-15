@@ -43,7 +43,8 @@ export const ThreeToothScene: React.FC<ThreeToothSceneProps> = ({
 
     // Camera
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    camera.position.set(0, 0.5, 4.2);
+    const initialCamZ = width < 480 ? 4.6 : 4.2;
+    camera.position.set(0, 0.4, initialCamZ);
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({
@@ -336,7 +337,7 @@ export const ThreeToothScene: React.FC<ThreeToothSceneProps> = ({
 
   return (
     <div
-      className={`relative w-full h-[360px] sm:h-[420px] lg:h-[480px] flex items-center justify-center select-none cursor-grab active:cursor-grabbing ${className}`}
+      className={`relative w-full h-[250px] sm:h-[320px] lg:h-[400px] flex items-center justify-center select-none cursor-grab active:cursor-grabbing touch-pan-y ${className}`}
     >
       {/* Background Soft Glow */}
       <div className="absolute inset-0 bg-radial from-cyan-400/20 via-sky-300/10 to-transparent blur-2xl pointer-events-none rounded-full transform scale-90" />
