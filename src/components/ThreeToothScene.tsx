@@ -190,13 +190,13 @@ export const ThreeToothScene: React.FC<ThreeToothSceneProps> = ({
     keyLight.position.set(3, 4, 3);
     scene.add(keyLight);
 
-    // 3. Rim Light (Turquoise / Cyan accent reflection)
-    const rimLight = new THREE.PointLight(0x06b6d4, 2.2, 10);
+    // 3. Rim Light (Soft Gold accent reflection)
+    const rimLight = new THREE.PointLight(0xC9B77D, 2.0, 10);
     rimLight.position.set(-3, 2, -2);
     scene.add(rimLight);
 
-    // 4. Soft Fill light
-    const fillLight = new THREE.DirectionalLight(0xdbeafe, 0.8);
+    // 4. Soft Fill light (Sage Green soft tint)
+    const fillLight = new THREE.DirectionalLight(0xDCE5D8, 0.9);
     fillLight.position.set(-2, -1, 3);
     scene.add(fillLight);
 
@@ -340,7 +340,7 @@ export const ThreeToothScene: React.FC<ThreeToothSceneProps> = ({
       className={`relative w-full h-[250px] sm:h-[320px] lg:h-[400px] flex items-center justify-center select-none cursor-grab active:cursor-grabbing touch-pan-y ${className}`}
     >
       {/* Background Soft Glow */}
-      <div className="absolute inset-0 bg-radial from-cyan-400/20 via-sky-300/10 to-transparent blur-2xl pointer-events-none rounded-full transform scale-90" />
+      <div className="absolute inset-0 bg-radial from-[#C9B77D]/15 via-[#DCE5D8]/20 to-transparent blur-2xl pointer-events-none rounded-full transform scale-90" />
 
       {/* Canvas container */}
       <div
@@ -350,32 +350,32 @@ export const ThreeToothScene: React.FC<ThreeToothSceneProps> = ({
 
       {/* Fallback if WebGL disabled */}
       {!webglSupported && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-slate-50/90 rounded-3xl border border-slate-200">
-          <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-sky-400 to-cyan-300 flex items-center justify-center text-white shadow-lg mb-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-[#FFFDF7] rounded-3xl border border-[#E7E0D0]">
+          <div className="w-24 h-24 rounded-full bg-[#0B4D32] flex items-center justify-center text-[#C9B77D] shadow-lg mb-4">
             <Sparkles className="w-12 h-12" />
           </div>
-          <p className="font-semibold text-slate-800">SmileCraft Precision 3D Dental Model</p>
-          <p className="text-xs text-slate-500 mt-1">Advanced 3D enamel visualization</p>
+          <p className="font-semibold text-[#0B4D32]">SmileCraft Precision 3D Dental Model</p>
+          <p className="text-xs text-[#17352A]/70 mt-1">Advanced 3D enamel visualization</p>
         </div>
       )}
 
       {/* Interactive Micro Badge */}
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md shadow-sm border border-sky-100 text-xs text-slate-600 font-medium">
-          <RotateCw className="w-3.5 h-3.5 text-cyan-600 animate-spin" style={{ animationDuration: '6s' }} />
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFFDF7]/95 backdrop-blur-md shadow-sm border border-[#E7E0D0] text-xs text-[#17352A] font-medium">
+          <RotateCw className="w-3.5 h-3.5 text-[#0B4D32] animate-spin" style={{ animationDuration: '6s' }} />
           <span>{badgeText}</span>
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ml-1" />
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#C9B77D] animate-pulse ml-1" />
         </div>
       </div>
 
       {/* Floating feature pills around 3D tooth */}
-      <div className="hidden sm:flex absolute top-6 -left-2 z-20 items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md shadow-md border border-slate-100 text-xs font-semibold text-slate-700 animate-bounce duration-1000">
-        <span className="w-2 h-2 rounded-full bg-cyan-500" />
+      <div className="hidden sm:flex absolute top-6 -left-2 z-20 items-center gap-2 px-3 py-1.5 rounded-xl bg-[#FFFDF7]/95 backdrop-blur-md shadow-md border border-[#E7E0D0] text-xs font-semibold text-[#0B4D32] animate-bounce duration-1000">
+        <span className="w-2 h-2 rounded-full bg-[#C9B77D]" />
         <span>Biocompatible Enamel</span>
       </div>
 
-      <div className="hidden sm:flex absolute bottom-14 -right-2 z-20 items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md shadow-md border border-slate-100 text-xs font-semibold text-slate-700">
-        <span className="w-2 h-2 rounded-full bg-emerald-500" />
+      <div className="hidden sm:flex absolute bottom-14 -right-2 z-20 items-center gap-2 px-3 py-1.5 rounded-xl bg-[#FFFDF7]/95 backdrop-blur-md shadow-md border border-[#E7E0D0] text-xs font-semibold text-[#0B4D32]">
+        <span className="w-2 h-2 rounded-full bg-[#0B4D32]" />
         <span>3D Guided Precision</span>
       </div>
     </div>

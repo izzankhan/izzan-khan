@@ -5,11 +5,10 @@ export const CLINIC_INFO = {
   doctorName: 'Dr. Sarah Khan',
   doctorRole: 'Lead Cosmetic & Restorative Dentist',
   doctorCredentials: 'DDS, Aesthetic Dentistry Fellow, ADA & AACD Member',
-  phone: '+1 (800) 555-0199',
-  phoneDisplay: '(800) 555-0199',
-  phoneHref: 'tel:+18005550199',
+  phone: '03231034955',
+  phoneDisplay: '0323 1034955',
+  phoneHref: 'tel:03231034955',
   email: 'care@smilecraftclinic.com',
-  whatsappHref: 'https://wa.me/18005550199?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20a%20free%20dental%20consultation%20at%20SmileCraft',
   address: '450 Medical Plaza, Suite 300, Metro City, CA 90210',
   googleMapsUrl: 'https://maps.google.com/?q=450+Medical+Plaza+Suite+300+Metro+City+CA+90210',
   workingHours: [
@@ -353,7 +352,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'faq-1',
     question: 'How do I book an appointment?',
-    answer: 'You can easily reserve your slot online using our interactive 60-second booking calendar or lead quiz on this page. Alternatively, tap the "Call Now" button at (800) 555-0199 to speak directly with our patient concierge desk.',
+    answer: 'You can easily book your appointment by clicking any "Book Online" button on this website to fill out our official consultation form, or by calling us directly at 0323 1034955. Our patient concierge team will promptly confirm your convenient date and time.',
     category: 'booking',
   },
   {

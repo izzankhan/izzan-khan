@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Calendar, MessageSquare, Sparkles } from 'lucide-react';
+import { Phone, Sparkles } from 'lucide-react';
 import { CLINIC_INFO } from '../data/funnelData';
 import { trackEvent } from '../utils/analytics';
 
@@ -12,50 +12,36 @@ export const StickyMobileBar: React.FC<StickyMobileBarProps> = ({ onOpenBooking 
     trackEvent('call_click', { section: 'Mobile Sticky Bar' });
   };
 
-  const handleWhatsApp = () => {
-    trackEvent('whatsapp_click', { section: 'Mobile Sticky Bar' });
-  };
-
-  const handleBook = () => {
-    trackEvent('cta_click', { ctaName: 'Mobile Sticky Bar Book', section: 'Mobile Sticky Bar' });
+  const handleBooking = () => {
+    trackEvent('cta_click', { section: 'Mobile Sticky Bar', action: 'Open Booking Form' });
     onOpenBooking();
   };
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-slate-200 p-2.5 shadow-2xl safe-area-pb">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0A0A0E]/95 backdrop-blur-xl border-t border-[#D4AF37]/30 p-2.5 shadow-2xl safe-area-pb">
       <div className="flex items-center gap-2 max-w-md mx-auto">
         
-        {/* Quick Call */}
+        {/* Direct Call Button */}
         <a
           href={CLINIC_INFO.phoneHref}
           onClick={handleCall}
-          className="flex flex-col items-center justify-center w-14 h-12 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors shrink-0"
-          aria-label="Call clinic"
+          id="mobile-bar-call-btn"
+          className="flex-1 h-12 rounded-xl bg-[#141418] hover:bg-[#1C1C24] text-white font-bold text-xs flex items-center justify-center gap-2 border border-[#D4AF37]/35 transition-all active:scale-98"
+          aria-label="Call 0323 1034955"
         >
-          <Phone className="w-4 h-4 text-sky-600" />
-          <span className="text-[10px] font-bold mt-0.5">Call</span>
+          <Phone className="w-4 h-4 text-[#D4AF37]" />
+          <span>Call: 0323 1034955</span>
         </a>
 
-        {/* Quick WhatsApp */}
-        <a
-          href={CLINIC_INFO.whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={handleWhatsApp}
-          className="flex flex-col items-center justify-center w-14 h-12 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 transition-colors shrink-0 border border-emerald-200"
-          aria-label="WhatsApp clinic"
-        >
-          <MessageSquare className="w-4 h-4 text-emerald-600" />
-          <span className="text-[10px] font-bold mt-0.5">Chat</span>
-        </a>
-
-        {/* Primary Book CTA */}
+        {/* Book Consultation Button (Routes directly to GoHighLevel form) */}
         <button
-          onClick={handleBook}
-          className="theme-btn-primary flex-1 h-12 rounded-xl text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-md transition-all active:scale-98"
+          onClick={handleBooking}
+          id="mobile-bar-book-btn"
+          className="flex-1 h-12 rounded-xl theme-btn-primary font-black text-xs flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all active:scale-98 cursor-pointer"
+          aria-label="Book Consultation"
         >
-          <Sparkles className="w-4 h-4 text-white" />
-          <span>Book Free Consultation</span>
+          <Sparkles className="w-4 h-4 text-black" />
+          <span>Book Appointment</span>
         </button>
 
       </div>

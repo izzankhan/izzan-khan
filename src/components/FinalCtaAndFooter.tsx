@@ -1,164 +1,87 @@
 import React, { useState } from 'react';
 import { 
-  Calendar, 
   Phone, 
-  MessageSquare, 
   MapPin, 
   Mail, 
   Clock, 
   Sparkles, 
-  ShieldCheck, 
-  ArrowRight,
-  ExternalLink
+  ExternalLink 
 } from 'lucide-react';
 import { CLINIC_INFO } from '../data/funnelData';
 import { LegalModals, LegalModalType } from './LegalModals';
-import { trackEvent } from '../utils/analytics';
 
 interface FinalCtaAndFooterProps {
   onOpenBooking: () => void;
 }
 
-export const FinalCtaAndFooter: React.FC<FinalCtaAndFooterProps> = ({ onOpenBooking }) => {
+export const FinalCtaAndFooter: React.FC<FinalCtaAndFooterProps> = () => {
   const [activeLegalModal, setActiveLegalModal] = useState<LegalModalType>(null);
 
-  const handleBookClick = () => {
-    trackEvent('cta_click', { ctaName: 'Final Section BOOK MY APPOINTMENT', section: 'Final CTA' });
-    onOpenBooking();
-  };
-
-  const handleCallClick = () => {
-    trackEvent('call_click', { section: 'Final CTA' });
-  };
-
-  const handleWhatsappClick = () => {
-    trackEvent('whatsapp_click', { section: 'Final CTA' });
-  };
-
   return (
-    <footer id="footer" className="relative bg-slate-950 text-white overflow-hidden">
+    <footer id="footer" className="relative bg-[#050507] text-[#9CA3AF] border-t border-[#D4AF37]/20 overflow-hidden">
       
-      {/* SECTION 15: Final Conversion Section */}
-      <div className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
-        
-        {/* Subtle Background Lighting */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-sky-600/15 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Take The First Step Today</span>
-          </div>
-
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-            A Better Smile Starts With One Simple Step.
-          </h2>
-
-          <p className="text-xs sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Book your consultation today and discover the right dental care for your needs.
-          </p>
-
-          {/* CTA Buttons: Book + Call + WhatsApp */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3.5 pt-2 sm:pt-4">
-            <button
-              onClick={handleBookClick}
-              id="final-book-cta-btn"
-              className="theme-btn-primary group flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl font-extrabold text-sm sm:text-base shadow-lg transition-all transform active:scale-98 sm:hover:-translate-y-0.5 cursor-pointer"
-            >
-              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              <span>BOOK MY APPOINTMENT</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-
-            <a
-              href={CLINIC_INFO.phoneHref}
-              onClick={handleCallClick}
-              id="final-call-btn"
-              className="flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-base border border-white/20 transition-all cursor-pointer"
-            >
-              <Phone className="w-4 h-4 text-cyan-400" />
-              <span>CALL NOW</span>
-            </a>
-
-            <a
-              href={CLINIC_INFO.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsappClick}
-              id="final-whatsapp-btn"
-              className="flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 font-bold text-xs sm:text-base border border-emerald-500/40 transition-all cursor-pointer"
-            >
-              <MessageSquare className="w-4 h-4 text-emerald-400" />
-              <span>WhatsApp Chat</span>
-            </a>
-          </div>
-
-          <div className="pt-1 flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-slate-400">
-            <ShieldCheck className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-            <span>Complimentary Assessment • No Credit Card Required • Same-Day Confirmation</span>
-          </div>
-        </div>
-      </div>
+      {/* Subtle Ambient Gold Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[200px] bg-[#D4AF37]/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* FOOTER: Clinical Information, Opening Hours, Map & Legal */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10">
           
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-cyan-400 flex items-center justify-center text-white shadow-md">
-                <Sparkles className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E6C265] to-[#B88E28] border border-[#F3E5AB]/40 flex items-center justify-center text-black shadow-md shadow-[#D4AF37]/20">
+                <Sparkles className="w-5 h-5 text-black" />
               </div>
               <div>
-                <span className="text-xl font-bold tracking-tight text-white block leading-tight font-heading">
-                  Smile<span className="text-sky-400">Craft</span>
+                <span className="text-xl font-bold tracking-tight text-white block leading-tight font-['Outfit']">
+                  Smile<span className="text-[#D4AF37]">Craft</span>
                 </span>
-                <span className="text-[11px] text-slate-400 tracking-wider uppercase font-semibold block">
+                <span className="text-[11px] text-[#D4AF37]/80 tracking-wider uppercase font-semibold block">
                   Dental Clinic
                 </span>
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Dedicated to delivering gentle, state-of-the-art restorative, cosmetic, and family dentistry in a relaxing, anxiety-free setting.
+            <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
+              Dedicated to delivering gentle, state-of-the-art restorative, cosmetic, and family dentistry in an anxiety-free, luxurious atmosphere.
             </p>
 
-            <div className="pt-2 space-y-2 text-xs text-slate-300">
-              <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
+            <div className="pt-2 space-y-2.5 text-xs text-[#D1D5DB]">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                 <span>{CLINIC_INFO.address}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
-                <a href={CLINIC_INFO.phoneHref} className="hover:text-white underline">
+                <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                <a href={CLINIC_INFO.phoneHref} className="hover:text-[#D4AF37] transition-colors font-bold">
                   {CLINIC_INFO.phoneDisplay}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
-                <a href={`mailto:${CLINIC_INFO.email}`} className="hover:text-white">
+                <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                <a href={`mailto:${CLINIC_INFO.email}`} className="hover:text-[#D4AF37] transition-colors">
                   {CLINIC_INFO.email}
                 </a>
               </div>
             </div>
 
-            {/* Social Media Links */}
-            <div className="pt-3 flex items-center gap-3">
+            {/* Social Links */}
+            <div className="pt-2 flex items-center gap-2.5">
               {[
-                { name: 'Instagram', url: '#' },
-                { name: 'Facebook', url: '#' },
-                { name: 'YouTube', url: '#' },
-                { name: 'LinkedIn', url: '#' },
+                { name: 'Instagram', label: 'IG' },
+                { name: 'Facebook', label: 'FB' },
+                { name: 'YouTube', label: 'YT' },
+                { name: 'LinkedIn', label: 'LI' },
               ].map((soc) => (
                 <a
                   key={soc.name}
-                  href={soc.url}
+                  href="#"
                   onClick={(e) => e.preventDefault()}
-                  className="w-8 h-8 rounded-lg bg-slate-900 hover:bg-sky-600 text-slate-400 hover:text-white flex items-center justify-center text-xs font-bold transition-colors border border-slate-800"
+                  className="w-8 h-8 rounded-lg bg-[#141418] hover:bg-[#D4AF37] text-[#9CA3AF] hover:text-black flex items-center justify-center text-xs font-bold transition-all border border-[#D4AF37]/20"
                   aria-label={soc.name}
                 >
-                  {soc.name.substring(0, 2)}
+                  {soc.label}
                 </a>
               ))}
             </div>
@@ -167,48 +90,47 @@ export const FinalCtaAndFooter: React.FC<FinalCtaAndFooterProps> = ({ onOpenBook
           {/* Col 2: Opening Hours */}
           <div className="lg:col-span-4 space-y-4">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <Clock className="w-4 h-4 text-cyan-400" />
-              <span>Opening Hours</span>
+              <Clock className="w-4 h-4 text-[#D4AF37]" />
+              <span>Clinic Hours</span>
             </h3>
 
-            <div className="space-y-2.5 text-xs text-slate-300 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+            <div className="space-y-2.5 text-xs text-[#D1D5DB] bg-[#121216] p-4 rounded-2xl border border-[#D4AF37]/25">
               {CLINIC_INFO.workingHours.map((wh, idx) => (
-                <div key={idx} className="flex justify-between items-center py-1 border-b border-slate-800/60 last:border-b-0">
-                  <span className="text-slate-400 font-medium">{wh.days}</span>
+                <div key={idx} className="flex justify-between items-center py-1 border-b border-[#D4AF37]/15 last:border-b-0">
+                  <span className="text-[#9CA3AF] font-medium">{wh.days}</span>
                   <span className="font-semibold text-white">{wh.hours}</span>
                 </div>
               ))}
             </div>
 
-            <div className="p-3 rounded-xl bg-sky-950/40 border border-sky-800/40 text-xs text-sky-200">
-              ⚡ <strong>Emergency Walk-Ins:</strong> Please call ahead at {CLINIC_INFO.phoneDisplay} so our medical team can prepare immediate operatory care.
+            <div className="p-3.5 rounded-xl bg-[#181820] border border-[#D4AF37]/30 text-xs text-[#D1D5DB] leading-relaxed">
+              ⚡ <strong className="text-white">Emergency Assistance:</strong> Please call front desk directly at <span className="text-[#D4AF37] font-bold">{CLINIC_INFO.phoneDisplay}</span> for urgent dental relief.
             </div>
           </div>
 
-          {/* Col 3: Google Maps Placeholder Card */}
+          {/* Col 3: Google Maps Card */}
           <div className="lg:col-span-4 space-y-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-cyan-400" />
+              <MapPin className="w-4 h-4 text-[#D4AF37]" />
               <span>Location & Directions</span>
             </h3>
 
-            {/* Simulated Interactive Google Maps card */}
-            <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 h-44 group">
+            <div className="relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 bg-[#121216] h-44 group">
               <img
                 src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80"
                 alt="SmileCraft Dental Clinic Map Location"
-                className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform"
+                className="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/40 to-transparent" />
               
               {/* Pin indicator */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
-                <div className="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center mx-auto shadow-lg animate-bounce">
-                  <MapPin className="w-5 h-5 fill-white" />
+                <div className="w-8 h-8 rounded-full bg-[#121216] border-2 border-[#D4AF37] text-[#D4AF37] flex items-center justify-center mx-auto shadow-lg">
+                  <MapPin className="w-4 h-4 fill-[#D4AF37]" />
                 </div>
-                <span className="text-[10px] font-bold bg-black/80 px-2 py-0.5 rounded text-white mt-1 inline-block">
-                  SmileCraft Plaza
+                <span className="text-[10px] font-bold bg-[#181820] border border-[#D4AF37]/40 px-2 py-0.5 rounded text-white mt-1 inline-block">
+                  DHA Phase 5, Lahore
                 </span>
               </div>
 
@@ -218,23 +140,23 @@ export const FinalCtaAndFooter: React.FC<FinalCtaAndFooterProps> = ({ onOpenBook
                   href={CLINIC_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2 px-3 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-sm"
+                  className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#B88E28] hover:from-[#e5c055] hover:to-[#cfa336] text-black font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md"
                 >
                   <span>Open in Google Maps</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3.5 h-3.5 text-black" />
                 </a>
               </div>
             </div>
 
-            <p className="text-[11px] text-slate-400">
-              Convenient ground-level visitor parking & wheelchair accessibility available.
+            <p className="text-[11px] text-[#9CA3AF]">
+              Valet and dedicated patient parking available directly on site.
             </p>
           </div>
 
         </div>
 
         {/* Bottom Legal bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="mt-12 pt-8 border-t border-[#D4AF37]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9CA3AF]">
           <p>
             © {new Date().getFullYear()} {CLINIC_INFO.name}. All rights reserved.
           </p>
@@ -242,19 +164,19 @@ export const FinalCtaAndFooter: React.FC<FinalCtaAndFooterProps> = ({ onOpenBook
           <div className="flex flex-wrap items-center gap-4 text-xs">
             <button
               onClick={() => setActiveLegalModal('privacy')}
-              className="hover:text-white transition-colors underline cursor-pointer"
+              className="hover:text-[#D4AF37] transition-colors underline cursor-pointer"
             >
               Privacy Policy
             </button>
             <button
               onClick={() => setActiveLegalModal('terms')}
-              className="hover:text-white transition-colors underline cursor-pointer"
+              className="hover:text-[#D4AF37] transition-colors underline cursor-pointer"
             >
               Terms & Conditions
             </button>
             <button
               onClick={() => setActiveLegalModal('disclaimer')}
-              className="hover:text-white transition-colors underline cursor-pointer"
+              className="hover:text-[#D4AF37] transition-colors underline cursor-pointer"
             >
               Medical Disclaimer
             </button>

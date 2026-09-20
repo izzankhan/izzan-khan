@@ -6,135 +6,103 @@
   }
   body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--theme-bg, #f8fafc);
-    color: #0f172a;
+    background-color: #070709;
+    color: #FFFFFF;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    color: #FFFFFF;
   }
 }
 
-/* Theme 1: Ocean Sky (Clinical Pure - Default) */
-[data-theme="ocean"] {
-  --theme-primary: #0284c7;
-  --theme-primary-hover: #0369a1;
-  --theme-primary-light: #e0f2fe;
-  --theme-accent: #06b6d4;
-  --theme-accent-hover: #0891b2;
-  --theme-accent-light: #ecfeff;
-  --theme-gradient: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
-  --theme-gradient-hover: linear-gradient(135deg, #0369a1 0%, #0891b2 100%);
-  --theme-bg: #f8fafc;
-  --theme-badge-bg: #e0f2fe;
-  --theme-badge-text: #0369a1;
-  --theme-glow: rgba(6, 182, 212, 0.15);
-  --theme-ring: #38bdf8;
+:root {
+  /* PREMIUM DARK BLACK & GOLD PALETTE */
+  --theme-bg: #070709;                /* Deep Obsidian Black */
+  --theme-card: #121216;              /* Dark Charcoal Card */
+  --theme-card-hover: #18181E;        /* Elevated Dark Charcoal */
+  --theme-text: #FFFFFF;              /* Pure White */
+  --theme-text-muted: #9CA3AF;        /* Light Gray Secondary Text */
+  
+  --theme-gold-primary: #D4AF37;      /* Imperial Gold */
+  --theme-gold-light: #F3E5AB;        /* Champagne Shimmer */
+  --theme-gold-dark: #B88E28;         /* Deep Rich Gold */
+  
+  --theme-border-gold: rgba(212, 175, 55, 0.3);
+  --theme-border-gold-hover: rgba(212, 175, 55, 0.6);
+  --theme-glow-gold: rgba(212, 175, 55, 0.25);
+  
+  --theme-gradient-gold: linear-gradient(135deg, #E6C265 0%, #D4AF37 50%, #B88E28 100%);
+  --theme-gradient-gold-hover: linear-gradient(135deg, #F3E5AB 0%, #E6C265 50%, #C99B22 100%);
+  --theme-gradient-dark: linear-gradient(180deg, #121216 0%, #0B0B0E 100%);
 }
 
-/* Theme 2: Royal Gold (Luxury Cosmetic Dentistry) */
-[data-theme="royal-gold"] {
-  --theme-primary: #0f172a;
-  --theme-primary-hover: #1e293b;
-  --theme-primary-light: #fef3c7;
-  --theme-accent: #d97706;
-  --theme-accent-hover: #b45309;
-  --theme-accent-light: #fffbeb;
-  --theme-gradient: linear-gradient(135deg, #0f172a 0%, #d97706 100%);
-  --theme-gradient-hover: linear-gradient(135deg, #1e293b 0%, #b45309 100%);
-  --theme-bg: #fafaf9;
-  --theme-badge-bg: #fef3c7;
-  --theme-badge-text: #92400e;
-  --theme-glow: rgba(217, 119, 6, 0.15);
-  --theme-ring: #f59e0b;
-}
-
-/* Theme 3: Mint Emerald (Zen Dental Spa - Anxiety Free) */
-[data-theme="mint-emerald"] {
-  --theme-primary: #0f766e;
-  --theme-primary-hover: #115e59;
-  --theme-primary-light: #ccfbf1;
-  --theme-accent: #10b981;
-  --theme-accent-hover: #059669;
-  --theme-accent-light: #ecfdf5;
-  --theme-gradient: linear-gradient(135deg, #0f766e 0%, #10b981 100%);
-  --theme-gradient-hover: linear-gradient(135deg, #115e59 0%, #059669 100%);
-  --theme-bg: #f6fbf9;
-  --theme-badge-bg: #ccfbf1;
-  --theme-badge-text: #115e59;
-  --theme-glow: rgba(16, 185, 129, 0.15);
-  --theme-ring: #34d399;
-}
-
-/* Theme 4: Sapphire Ice (Modern Tech & 3D Implants) */
-[data-theme="sapphire-ice"] {
-  --theme-primary: #2563eb;
-  --theme-primary-hover: #1d4ed8;
-  --theme-primary-light: #dbeafe;
-  --theme-accent: #4f46e5;
-  --theme-accent-hover: #4338ca;
-  --theme-accent-light: #eef2ff;
-  --theme-gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-  --theme-gradient-hover: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
-  --theme-bg: #f8faff;
-  --theme-badge-bg: #dbeafe;
-  --theme-badge-text: #1e40af;
-  --theme-glow: rgba(79, 70, 229, 0.15);
-  --theme-ring: #60a5fa;
-}
-
-/* Theme 5: Rose Aesthetic (Aesthetic Smile & Family Care) */
-[data-theme="rose-aesthetic"] {
-  --theme-primary: #be185d;
-  --theme-primary-hover: #9d174d;
-  --theme-primary-light: #fce7f3;
-  --theme-accent: #db2777;
-  --theme-accent-hover: #be185d;
-  --theme-accent-light: #fdf2f8;
-  --theme-gradient: linear-gradient(135deg, #9d174d 0%, #db2777 100%);
-  --theme-gradient-hover: linear-gradient(135deg, #831843 0%, #be185d 100%);
-  --theme-bg: #fffbfd;
-  --theme-badge-bg: #fce7f3;
-  --theme-badge-text: #9d174d;
-  --theme-glow: rgba(219, 39, 119, 0.15);
-  --theme-ring: #f472b6;
-}
-
-/* Dynamic theme helper classes */
+/* Primary Button: Luxury Gold Gradient with Smooth Hover Glow */
 .theme-btn-primary {
-  background: var(--theme-gradient);
-  color: #ffffff;
-  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #E6C265 0%, #D4AF37 50%, #B88E28 100%);
+  color: #0A0A0C;
+  font-weight: 800;
+  border: 1px solid rgba(243, 229, 171, 0.4);
+  box-shadow: 0 4px 20px -2px rgba(212, 175, 55, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .theme-btn-primary:hover {
-  background: var(--theme-gradient-hover);
-  box-shadow: 0 10px 20px -5px var(--theme-glow);
+  background: linear-gradient(135deg, #F3E5AB 0%, #E6C265 50%, #C99B22 100%);
+  box-shadow: 0 8px 30px 0 rgba(212, 175, 55, 0.55);
+  transform: translateY(-2px);
+}
+.theme-btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Secondary Button: Dark Charcoal with Gold Border & Gold Hover Text */
+.theme-btn-secondary {
+  background: #141418;
+  color: #FFFFFF;
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+}
+.theme-btn-secondary:hover {
+  background: #1C1C22;
+  border-color: #D4AF37;
+  color: #F3E5AB;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+  transform: translateY(-1.5px);
+}
+.theme-btn-secondary:active {
+  transform: scale(0.98);
 }
 
 .theme-text-gradient {
-  background: var(--theme-gradient);
+  background: linear-gradient(135deg, #FFF5D6 0%, #D4AF37 50%, #E6C265 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .theme-badge {
-  background-color: var(--theme-badge-bg);
-  color: var(--theme-badge-text);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: #18181F;
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.35);
 }
 
-/* Custom smooth glassmorphism and subtle animations */
+.theme-card {
+  background-color: #121216;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+/* Premium Dark Glassmorphism */
 .glass-card {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: rgba(18, 18, 22, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
 }
 
 .glass-card-dark {
-  background: rgba(15, 23, 42, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(51, 65, 85, 0.6);
+  background: rgba(10, 10, 13, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 /* Hide scrollbar for smooth horizontal category pill swipe on mobile */
@@ -146,7 +114,7 @@
   scrollbar-width: none;
 }
 
-/* Subtle dental enamel shimmer effect */
+/* Subtle luxury gold shimmer effect */
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(200%); }
